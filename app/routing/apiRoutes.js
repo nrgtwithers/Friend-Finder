@@ -27,5 +27,21 @@ module.exports = function (app) {
 
         return res.json(false);
     });
+    // Create New friend array - takes in JSON input
+app.post("/api/surveys", function(req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    var userInput = req.body;
+  
+    // Using a RegEx Pattern to remove spaces from userinput
+    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+    userInput.routeName = userInput.name.replace(/\s+/g, "").toLowerCase();
+  
+    console.log(userInput);
+  
+    characters.push(userInput);
+  
+    res.json(userInput);
+  });
 
 }
