@@ -28,6 +28,7 @@ hr{
 .display-4{
     font-weight: bold;
     text-align: right;
+    color: white;
 }
 
 .lead, p, .my-4, .btn{
