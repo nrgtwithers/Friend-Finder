@@ -1,0 +1,29 @@
+html, body{
+    justify-content: center;
+    padding: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.jumbotron{
+    background-color: darkblue;
+    color: white;
+}
+
+.display-4{
+    font-weight: bold;
+}
+
+.btn-primary{
+    color: darkblue !important;
+    border-radius: 2px !important;
+    background-color: white !important;
+}
+
+form{
+    width: 650px;
+    margin: auto;
+}
+
+.questions{
+    padding: 15px;
+}
