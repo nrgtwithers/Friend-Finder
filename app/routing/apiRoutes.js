@@ -6,7 +6,6 @@ var friends = require('../data/friends.js');
 
 // Export API routes
 module.exports = function (app) {
-    // console.log('___ENTER apiRoutes.js___');
 
     // Total list of friend entries
     app.get("/api/surveys", function (req, res) {
