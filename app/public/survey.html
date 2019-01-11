@@ -156,14 +156,16 @@
             <br>
         </form>
     </div>
+    <div class="match"></div>
+    <div class="friend-image"></div>
     <div class="links">
         <a href="/api/surveys">API Friends List</a> | <a href="https://github.com/nrgtwithers/Friend-Finder">GitHub Repo</a>
     </div>
     <script>
-
+// This is to grab the information the form after the submit button is clicked
         $('#submit').on('click', function (event) {
             event.preventDefault();
-            // console.log('hi')
+        
             // Gather user inputs
             var userInput = {
                 name: $('#names').val().trim(),
@@ -184,7 +186,11 @@
             $.post("/api/surveys", userInput)
                 .then(function (data) {
                     console.log(data);
-
+                    //This is where you would put the information on the match
+                    // $(".container").hide();
+                    // $(".match").show();
+                    // $(".match").text(`You're match is ${friendsArray.name[0]}!`)
+                    // $(".friend-image").append('<img src="' + friendsArray.photo[0] + '" />');
                 });
 
         });

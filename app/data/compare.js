@@ -1,3 +1,4 @@
+// Find the best match function
 var findMatch = function (firstArray, secondArray) {
     var finalArray = []
     secondArray.forEach(secondArrayElement => {
@@ -13,7 +14,7 @@ var findMatch = function (firstArray, secondArray) {
     });
     return finalArray;
 }
-// Worst Match
+// Find the Worst Match
 var leastMatch = function (finalArray){
     Array.min = function (array){
         return Math.min.apply(Math, array)
@@ -29,5 +30,6 @@ var leastMatch = function (finalArray){
     return indexOfSmall;
 }
 
+// To Export the functions
 module.exports.findMatch = findMatch;
 module.exports.leastMatch = leastMatch;

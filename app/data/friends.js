@@ -161,5 +161,5 @@ var friendsArray = [{
     ]
 }
 ]
-
+// To export the arrays
 module.exports = friendsArray;
