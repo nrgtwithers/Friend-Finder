@@ -31,7 +31,7 @@
             <div class=questions>
                 <h5>Question 1</h5>
                 <label for="question1">I have a vivid imagination.</label>
-                <select class="form-control">
+                <select class="form-control" id="question1">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -43,7 +43,7 @@
             <div class="questions">
                 <h5>Question 2</h5>
                 <label for="question2">I believe in the importance of art.</label>
-                <select class="form-control">
+                <select class="form-control" id="question2">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -55,7 +55,7 @@
             <div class="questions">
                 <h5>Question 3</h5>
                 <label for="question3">I prefer variety to routine.</label>
-                <select class="form-control">
+                <select class="form-control" id="question3">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -67,7 +67,7 @@
             <div class="questions">
                 <h5>Question 4</h5>
                 <label for="question4">I love excitement.</label>
-                <select class="form-control">
+                <select class="form-control" id="question4">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -79,7 +79,7 @@
             <div class="questions">
                 <h5>Question 5</h5>
                 <label for="question5">I like to solve complex problems.</label>
-                <select class="form-control">
+                <select class="form-control" id="question5">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -91,7 +91,7 @@
             <div class="questions">
                 <h5>Question 6</h5>
                 <label for="question6">I dislike being the center of attention.</label>
-                <select class="form-control">
+                <select class="form-control" id="question6">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -103,7 +103,7 @@
             <div class="questions">
                 <h5>Question 7</h5>
                 <label for="question7">I love large parties.</label>
-                <select class="form-control">
+                <select class="form-control" id="question7">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -115,7 +115,7 @@
             <div class="questions">
                 <h5>Question 8</h5>
                 <label for="question8">I get irritated easily.</label>
-                <select class="form-control">
+                <select class="form-control" id="question8">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -127,7 +127,7 @@
             <div class="questions">
                 <h5>Question 9</h5>
                 <label for="question9">I become overwhelmed by events.</label>
-                <select class="form-control">
+                <select class="form-control" id="question9">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -139,7 +139,7 @@
             <div class="questions">
                 <h5>Question 10</h5>
                 <label for="question10">I talk to a lot of different people at parties.</label>
-                <select class="form-control">
+                <select class="form-control" id="question10">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -157,27 +157,28 @@
         </form>
     </div>
     <div class="links">
-        <a href="./survey">API Friends List</a> | <a href="https://github.com/nrgtwithers/Friend-Finder">GitHub Repo</a>
+        <a href="/api/surveys">API Friends List</a> | <a href="https://github.com/nrgtwithers/Friend-Finder">GitHub Repo</a>
     </div>
-    <script src="text/javascript">
+    <script>
 
         $('#submit').on('click', function (event) {
             event.preventDefault();
+            // console.log('hi')
             // Gather user inputs
             var userInput = {
                 name: $('#names').val().trim(),
                 photo: $('#links').val().trim(),
                 scores: [
-                    $('#question1').val().trim(),
-                    $('#question2').val().trim(),
-                    $('#question3').val().trim(),
-                    $('#question4').val().trim(),
-                    $('#question5').val().trim(),
-                    $('#question6').val().trim(),
-                    $('#question7').val().trim(),
-                    $('#question8').val().trim(),
-                    $('#question9').val().trim(),
-                    $('#question10').val().trim()
+                    Number($('#question1').val().trim()),
+                    Number($('#question2').val().trim()),
+                    Number($('#question3').val().trim()),
+                    Number($('#question4').val().trim()),
+                    Number($('#question5').val().trim()),
+                    Number($('#question6').val().trim()),
+                    Number($('#question7').val().trim()),
+                    Number($('#question8').val().trim()),
+                    Number($('#question9').val().trim()),
+                    Number($('#question10').val().trim())
                 ]
             };
             $.post("/api/surveys", userInput)

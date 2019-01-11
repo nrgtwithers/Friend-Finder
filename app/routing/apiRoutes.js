@@ -1,15 +1,16 @@
 // Pull in required dependencies
 var path = require('path');
+var compare = require('./../data/compare.js')
 
 // Import the list of friend entries
-var friends = require('../data/friends.js');
+var friendsArray = require('../data/friends.js');
 
 // Export API routes
 module.exports = function (app) {
 
     // Total list of friend entries
     app.get("/api/surveys", function (req, res) {
-        return res.json(survey);
+        return res.json({surveyOfFriends: friendsArray});
     });
 
     // Displays a single character, or returns false
@@ -28,17 +29,19 @@ module.exports = function (app) {
     });
     // Create New friend array - takes in JSON input
 app.post("/api/surveys", function(req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body parsing middleware
+  
     var userInput = req.body;
-  
-    // Using a RegEx Pattern to remove spaces from userinput
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    userInput.routeName = userInput.name.replace(/\s+/g, "").toLowerCase();
-  
-    console.log(userInput);
-  
-    characters.push(userInput);
+    var incoming = req.body.scores;
+    // console.log(incoming)
+    // console.log(userInput);
+    var questions = []
+    friendsArray.forEach(element =>{
+        questions.push(element.scores)
+    })
+    var finalArray = compare.findMatch(incoming.scores, questions)
+    var match = compare.leastMatch(finalArray)
+    console.log(finalArray)
+    friendsArray.push(userInput);
   
     res.json(userInput);
   });

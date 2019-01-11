@@ -18,7 +18,9 @@ app.use(bodyParser.text());
 // Add the application routes
 require(path.join(__dirname, './app/routing/apiRoutes'))(app);
 require(path.join(__dirname, './app/routing/htmlRoutes'))(app);
-
+app.post("/api/surveys", function(req, res){
+console.log('hi')
+});
 // Start listening on PORT
 app.listen(PORT, function() {
   console.log('Friend Finder app is listening on PORT: ' + PORT);
