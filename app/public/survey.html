@@ -189,8 +189,10 @@
                     //This is where you would put the information on the match
                     $(".container").hide();
                     $(".match").show();
-                    $(".match").text("You're match is" + match.name)
-                    $(".friend-image").append('<img src="' + match.photo + '" />');
+                    $(".match").text("You're match is " + data.name)
+                    $(".match").css("font-weight", "bold")
+                    $(".match").css("font-size", "30px")
+                    $(".friend-image").append('<img src="' + data.photo + '" />');
                 });
 
         });
