@@ -187,10 +187,10 @@
                 .then(function (data) {
                     console.log(data);
                     //This is where you would put the information on the match
-                    // $(".container").hide();
-                    // $(".match").show();
-                    // $(".match").text(`You're match is ${friendsArray.name[0]}!`)
-                    // $(".friend-image").append('<img src="' + friendsArray.photo[0] + '" />');
+                    $(".container").hide();
+                    $(".match").show();
+                    $(".match").text("You're match is" + match.name)
+                    $(".friend-image").append('<img src="' + match.photo + '" />');
                 });
 
         });

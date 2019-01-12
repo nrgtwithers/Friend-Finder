@@ -1,35 +1,36 @@
-// Find the best match function
+// // Find the best match function
 var findMatch = function (firstArray, secondArray) {
-    var finalArray = []
+    var finalArray = [];
     secondArray.forEach(secondArrayElement => {
-        var choice = []
-        for (const i in secondArrayElement) {
-            for (const j in firstArray) {
-                if (i === j) {
-                    choice.push(Math.abs(firstArray[j] - secondArray[i]))
+        var temp = [];
+        for (i in secondArrayElement) {
+            for (j in firstArray) {
+                if (i == j) {
+                    temp.push(Math.abs(firstArray[j] - secondArrayElement[i]));
                 }
             }
         }
-        finalArray.push(choice.reduce((a,b)=> a+b, 0))
+        // sum temp element, and add to finalArray
+        finalArray.push(temp.reduce((a, b) => a + b, 0));
     });
     return finalArray;
 }
-// Find the Worst Match
-var leastMatch = function (finalArray){
-    Array.min = function (array){
-        return Math.min.apply(Math, array)
-    };
-    var smallestNumber = Array.min(finalArray)
+
+var leastMatch = function(finalArray){
+
+    Array.min = function (array) {
+        return Math.min.apply(Math, array);
+    }    
+    var smallestNumber = Array.min(finalArray);
     var indexOfSmall = [];
-    for (var i = 0; i<finalArray.length; i++){
-        var element = finalArray[i];
-        if (element == smallestNumber){
-            indexOfSmall.push(finalArray.indexOf(smallestNumber, i))
+    for (let i = 0; i < finalArray.length; i++) {
+        const element = finalArray[i];
+        if (element == smallestNumber) {
+            indexOfSmall.push(finalArray.indexOf(smallestNumber, i));
         }
     }
     return indexOfSmall;
+        
 }
-
-// To Export the functions
 module.exports.findMatch = findMatch;
 module.exports.leastMatch = leastMatch;

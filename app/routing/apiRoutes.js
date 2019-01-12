@@ -10,7 +10,7 @@ module.exports = function (app) {
 
     // Total list of friend entries
     app.get("/api/surveys", function (req, res) {
-        return res.json({surveyOfFriends: friendsArray});
+        return res.json({ surveyOfFriends: friendsArray });
     });
 
     // Displays a single character, or returns false
@@ -28,22 +28,21 @@ module.exports = function (app) {
         return res.json(false);
     });
     // Create New friend array - takes in JSON input
-app.post("/api/surveys", function(req, res) {
-  
-    var userInput = req.body;
-    var incoming = req.body.scores;
-    // console.log(incoming)
-    // console.log(userInput);
-    var questions = []
-    friendsArray.forEach(element =>{
-        questions.push(element.scores)
-    })
-    var finalArray = compare.findMatch(incoming.scores, questions)
-    var match = compare.leastMatch(finalArray)
-    console.log(finalArray)
-    friendsArray.push(userInput);
-  
-    res.json(userInput);
-  });
+    app.post("/api/surveys", function (req, res) {
+
+        var incomingPerson = req.body;
+        friendsArray.push(incomingPerson);
+        var questionsInArray = [];
+        friendsArray.forEach(element => {
+            questionsInArray.push(element.scores);
+        });
+        
+        questionsInArray.pop();
+        var finalArray = compare.findMatch(incomingPerson.scores, questionsInArray);
+        var match = compare.leastMatch(finalArray);
+        console.log(finalArray);
+        console.log(match);
+        res.send(friendsArray[match[0]]);
+    });
 
 }

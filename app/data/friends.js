@@ -4,15 +4,15 @@ var friendsArray = [{
     name: 'Edgar',
     photo: 'https://i2.wp.com/bloody-disgusting.com/wp-content/uploads/2012/03/frankenweenie-2_6.jpg?w=1400&ssl=1',
     scores: [
-        '1',
-        '5',
-        '5',
-        '1',
-        '5',
+        '3',
+        '2',
         '5',
         '1',
+        '4',
+        '5',
+        '3',
         '1',
-        '1',
+        '2',
         '5'
     ]
 },
